@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Orientados a Objetos</title>
+    <link rel="stylesheet" href="https://bootswatch.com/4/litera/bootstrap.min.css">
+    <link rel="stylesheet" href="tabla.css">
+</head>
+<body>
+   <div class="container py-2">
+       <p class="lead">Ingrese usuario</p>
+       <form>
+           <input id="nombre" type="text" placeholder="Ingresa nombre" class="form-control my-1">
+           <input id="apel" type="text" placeholder="Ingresa apellido primero" class="form-control my-1">
+           <input id="apelli" type="text" placeholder="Ingresa apellido segundo" class="form-control my-1">
+           <input id="edad" type="text" placeholder="Ingresa edad" class="form-control my-1">
+           <button id="boton" class="btn btn-success" type="reset" onclick="capturar();">Agregar</button>
+       </form>
+   </div>
+   <did class="container">
+       <table class="table" id="tabla">
+           <thead class="thead-inverse">
+            <tr>
+                    <th class="col-sm-1">Nombre</th>
+                    <th class="col-sm-1">Apellido1</th>
+                    <th class="col-sm-1">Apellido2</th>
+                    <th class="col-sm-2">Edad</th>
+            </tr>
+        </thead>
+        <table width="50%">Espacio para la lista de Nombe Apellidos y Edad</table>
+
+       </table>
+   </did>
+
+   <script>
+      function capturar(){
+         // console.log('capturado');
+         function Persona(nombre, apel, apelli, edad){
+             this.nombre=nombre;
+             this.apel=apel;
+             this.apelli=apelli;
+             this.edad=edad;
+         }
+         var nombreCapturar = document.getElementById("nombre").value;
+         var apelCapturar = document.getElementById("apel").value;
+         var apelliCapturar = document.getElementById("apelli").value;
+         //console.log(nombreCapturar); 
+         var edadCapturar = document.getElementById("edad").value;
+         //console.log(edadCapturar); 
+         nuevoSujeto = new Persona(nombreCapturar, apelCapturar, apelliCapturar, edadCapturar);
+         console.log(nuevoSujeto);
+         agregar();
+      }
+      var baseDatos= [];
+      function agregar(){
+          baseDatos.push(nuevoSujeto);
+          console.log(baseDatos);
+         const tabla = document.getElementById("tabla").innerHTML += `<tbody><td>`+nuevoSujeto.nombre+`</td><td>`+nuevoSujeto.apel+`</td><td>`+nuevoSujeto.apelli+`</td><td>`+nuevoSujeto.edad+`</td></tbody>`;
+
+      };
+
+   </script>
+    
+</body>
+</html>
